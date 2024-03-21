@@ -1,0 +1,13 @@
+datasource management {
+  provider = "postgresql"
+  url = "postgresql://postgres:r9hnAmAZIg3XT6U0s3iWn1WwmJq1ZkunYkAhv0OZ2r9hnAmAZIg3XT6U0s3iWn1WwmJq1ZkunYkAhv0OZ2@localhost/postgres?schema=management"
+}
+
+generator client {
+  provider      = "prisma-client-js"
+}
+
+model Tenant {
+  name     String @id
+  url      String
+}
