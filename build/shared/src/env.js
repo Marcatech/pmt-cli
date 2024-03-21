@@ -44,7 +44,7 @@ const setManagementEnv = () => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.setManagementEnv = setManagementEnv;
 exports.envPaths = [
-    'C:/Users/Domme/Documents/Coding/Marcatech/GithubOrg/Backend/onestaff-backend/.env',
+    process.env.PMT_ENV_PATH
 ];
 const getEnvPath = (schemaPath) => __awaiter(void 0, void 0, void 0, function* () {
     if (schemaPath) {
