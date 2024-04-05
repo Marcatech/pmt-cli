@@ -1,4 +1,4 @@
-import { Management, spawnShell } from '../../../shared/src'
+import { Management, spawnShell } from 'prisma-multi-tenant-shared-updated'
 
 import { Command, CommandArguments } from '../types'
 
@@ -21,7 +21,7 @@ class Env implements Command {
 
     process.env.DATABASE_URL = tenant.url
 
-    spawnShell(args.secondary).then((exitCode) => process.exit(exitCode))
+    spawnShell(args.secondary).then((exitCode:any) => process.exit(exitCode))
   }
 }
 

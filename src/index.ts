@@ -2,7 +2,7 @@
 
 import path from 'path'
 
-import { PmtError, Management } from '../../shared/src'
+import { PmtError, Management } from 'prisma-multi-tenant-shared-updated'
 
 import * as commands from './commands'
 import {

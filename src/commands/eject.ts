@@ -1,6 +1,6 @@
 import chalk from 'chalk'
 
-import { runShell } from '../../../shared/src'
+import { runShell } from 'prisma-multi-tenant-shared-updated'
 
 import { Command } from '../types'
 import { useYarn } from '../helpers/misc'

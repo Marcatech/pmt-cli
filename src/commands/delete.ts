@@ -1,6 +1,6 @@
 import chalk from 'chalk'
 
-import { Management } from '../../../shared/src'
+import { Management } from 'prisma-multi-tenant-shared-updated'
 
 import { Command, CommandArguments } from '../types'
 import prompt from '../helpers/prompt'

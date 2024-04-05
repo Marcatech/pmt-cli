@@ -1,5 +1,5 @@
 import path from 'path'
-import { fileExists } from '../../../shared/src';
+import { fileExists } from 'prisma-multi-tenant-shared-updated';
 
 export const useYarn = async (): Promise<boolean> => {
   if (await fileExists(path.join(process.cwd(), 'yarn.lock'))) {

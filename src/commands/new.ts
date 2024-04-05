@@ -6,7 +6,7 @@ import {
   PmtError,
   getSchemaPath,
   translateDatasourceUrl,
-} from '../../../shared/src';
+} from 'prisma-multi-tenant-shared-updated';
 
 import { Command, CommandArguments } from '../types';
 import prompt from '../helpers/prompt';

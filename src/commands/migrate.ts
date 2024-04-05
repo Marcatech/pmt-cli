@@ -7,7 +7,7 @@ import {
   runLocalPrisma,
   spawnShell,
   getSchemaPath,
-} from '../../../shared/src';
+} from 'prisma-multi-tenant-shared-updated';
 import { Command, CommandArguments } from '../types';
 
 class Migrate implements Command {

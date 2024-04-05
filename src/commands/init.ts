@@ -14,7 +14,7 @@ import {
   isPrismaCliLocallyInstalled,
   translateDatasourceUrl,
   getSchemaPath,
-} from '../../../shared/src'
+} from 'prisma-multi-tenant-shared-updated'
 
 import { Command, CommandArguments } from '../types'
 import { useYarn } from '../helpers/misc'
@@ -125,14 +125,14 @@ class Init implements Command {
 
       const datasourceConfigUrl = datasourceConfig
         .split('\n')
-        .map((l) =>
+        .map((l:any) =>
           l
             .trim()
             .split('=')
-            .map((l) => l.trim())
+            .map((l:any) => l.trim())
         )
-        .find(([key]) => key === 'url')?.[1]
-      if (!datasourceConfigUrl) {
+        .find(([key]: [any, any]) => key === 'url')?.[1]
+        if (!datasourceConfigUrl) {
         throw new Error('No url found in datasource')
       }
 
@@ -203,61 +203,26 @@ class Init implements Command {
 
   setUpManagement() {
     console.log('\n  Setting up management database...')
-
     return migrate.migrateManagement('deploy')
   }
 
   async createFirstTenant(firstTenant: Datasource, management: Management) {
     console.log('\n  Creating first tenant from your initial schema...')
-
+    console.log("now deploying tenants...");
+    
     await migrate.migrateTenant('deploy', firstTenant);
+    console.log("now generating tenants...");
+    
     await generate.generateTenants();
-
+    console.log("now creating management...");
+    
     await management.create(firstTenant)
+    console.log("All important tasks done...");
+    
   }
 
   async createExample(firstTenant: Datasource | null) {
-    console.log('\n  Creating example script...')
-
-    const { dmmf } = requireDistant('@prisma/client')
-
-    const firstModelMapping = dmmf.mappings.modelOperations[0]
-
-    const modelNamePlural = firstModelMapping.plural
-    const modelNameSingular = firstModelMapping.model.toLowerCase()
-
-    const script = `
-      const { PrismaClient } = require('prisma') 
-      const { MultiTenant } = require('@prisma-multi-tenant/client')
-
-      // This is the name of your first tenant, try with another one
-      const name = "${firstTenant?.name || 'dev'}"
-
-      // If you are using TypeScript, you can do "new MultiTenant<PrismaClient>()" for autocompletion
-      const multiTenant = new MultiTenant()
-      
-      async function main() {
-        // Prisma-multi-tenant will connect to the correct tenant
-        const prisma = await multiTenant.get(name)
-      
-        // You keep the same interface as before
-        const ${modelNamePlural} = await prisma.${modelNameSingular}.findMany()
-      
-        console.log(${modelNamePlural})
-      }
-
-      main()
-        .catch(e => console.error(e))
-        .finally(async () => {
-          await multiTenant.disconnect()
-        })
-    `
-      .split('\n')
-      .map((x) => x.substr(6))
-      .join('\n')
-      .substr(1)
-
-    await fs.promises.writeFile(process.cwd() + '/multi-tenancy-example.js', script)
+    console.log('\n  Skipping creation of example file...')
   }
 }
 

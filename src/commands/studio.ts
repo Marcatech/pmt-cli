@@ -1,4 +1,4 @@
-import { Management, runDistantPrisma, getSchemaPath } from '../../../shared/src'
+import { Management, runDistantPrisma, getSchemaPath } from 'prisma-multi-tenant-shared-updated'
 
 import { Command, CommandArguments } from '../types'
 import chalk from 'chalk'

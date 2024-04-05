@@ -5,7 +5,7 @@ import {
   runLocalPrisma,
   spawnShell,
   getSchemaPath,
-} from '../../../shared/src'
+} from 'prisma-multi-tenant-shared-updated'
 
 import { Command, CommandArguments } from '../types'
 
@@ -64,7 +64,7 @@ class Generate implements Command {
     schemaPath = schemaPath || (await getSchemaPath())    
     spawnShell(
       `npx prisma generate --schema ${schemaPath} --watch ${prismaArgs || ''}`
-    ).then((exitCode) => process.exit(exitCode))
+    ).then((exitCode:any) => process.exit(exitCode))
   }
 }
 

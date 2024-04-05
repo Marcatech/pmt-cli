@@ -1,5 +1,5 @@
 import arg from 'arg'
-import { PmtError } from '../../../shared/src'
+import { PmtError } from 'prisma-multi-tenant-shared-updated'
 
 import { CliArguments, Command, CommandArguments } from '../types'
 

@@ -1,6 +1,6 @@
 {
   "name": "prisma-multi-tenant-cli-updated",
-  "version": "2.5.2",
+  "version": "2.5.24",
   "description": "Command Line Interface for prisma-multi-tenant",
   "author": {
     "name": "Thibaud Courtoison",
@@ -9,8 +9,8 @@
   },
   "license": "MIT",
   "bin": {
-    "prisma-multi-tenant": "build/cli/src/index.js",
-    "pmt": "build/cli/src/index.js"
+    "prisma-multi-tenant": "build/index.js",
+    "pmt": "build/index.js"
   },
   "files": [
     "build"
@@ -21,25 +21,25 @@
     "prettier": "prettier \"src/**/*.ts\" --check"
   },
   "dependencies": {
-    "@prisma/client": "^5.10.1",
+    "@prisma/client": "^5.11.0",
     "arg": "^4.1.3",
-    "chalk": "^4.1.0",
-    "cli-table3": "^0.6.0",
-    "dotenv": "^8.2.0",
-    "inquirer": "^7.3.2",
-    "prisma": "^5.10.1",
-    "prisma-multi-tenant-shared-updated": "^2.5.1"
+    "chalk": "^4.1.2",
+    "cli-table3": "^0.6.3",
+    "dotenv": "^8.6.0",
+    "inquirer": "^7.3.3",
+    "prisma": "^5.11.0",
+    "prisma-multi-tenant-shared-updated": "^2.5.19"
   },
   "devDependencies": {
     "@types/inquirer": "^9.0.7",
-    "@types/node": "^14.0.23",
-    "@typescript-eslint/eslint-plugin": "^3.6.1",
-    "@typescript-eslint/parser": "^3.6.1",
-    "eslint": "^7.4.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "prettier": "^2.0.5",
-    "typescript": "^5.4.2"
+    "@types/node": "^14.18.63",
+    "@typescript-eslint/eslint-plugin": "^7.3.1",
+    "@typescript-eslint/parser": "^7.3.1",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.3"
   },
   "repository": {
     "type": "git",
