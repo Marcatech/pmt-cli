@@ -92,9 +92,12 @@ class Migrate implements Command {
     const tenants = await management.list();
 
     for (const tenant of tenants) {
-      console.log(`    > Migrating "${tenant.name}" ${action}`);
-      await this.migrateTenant(action, tenant, schemaPath, prismaArgs);
+      if (tenant.name !== "management") {
+        console.log(`    > Migrating "${tenant.name}" ${action}`);
+        await this.migrateTenant(action, tenant, schemaPath, prismaArgs);
+      }
     }
+
   }
 
   async migrateTenant(

@@ -67,8 +67,10 @@ class Migrate {
     async migrateAllTenants(management, action, schemaPath, prismaArgs = '') {
         const tenants = await management.list();
         for (const tenant of tenants) {
-            console.log(`    > Migrating "${tenant.name}" ${action}`);
-            await this.migrateTenant(action, tenant, schemaPath, prismaArgs);
+            if (tenant.name !== "management") {
+                console.log(`    > Migrating "${tenant.name}" ${action}`);
+                await this.migrateTenant(action, tenant, schemaPath, prismaArgs);
+            }
         }
     }
     async migrateTenant(action, tenant, schemaPath, prismaArgs = '') {
