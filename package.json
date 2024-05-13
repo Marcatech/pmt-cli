@@ -1,6 +1,6 @@
 {
   "name": "prisma-multi-tenant-cli-updated",
-  "version": "2.5.27",
+  "version": "2.5.29",
   "description": "Command Line Interface for prisma-multi-tenant",
   "author": {
     "name": "Thibaud Courtoison",
@@ -28,7 +28,7 @@
     "dotenv": "^8.6.0",
     "inquirer": "^7.3.3",
     "prisma": "^5.11.0",
-    "prisma-multi-tenant-shared-updated": "^2.5.21"
+    "prisma-multi-tenant-shared-updated": "^2.5.23"
   },
   "devDependencies": {
     "@types/inquirer": "^9.0.7",
